@@ -1,0 +1,6 @@
+{
+  "name": "SGD FX - Singapore Exchange Rates",
+  "description": "Real-time Singapore Dollar (SGD) currency conversions, MAS-aligned exchange rates, multi-currency calculator, and favorites.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
