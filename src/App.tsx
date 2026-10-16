@@ -8,10 +8,11 @@ import { Calculator } from './components/Calculator';
 import { MultiConvertMatrix } from './components/MultiConvertMatrix';
 import { CurrencyDetailModal } from './components/CurrencyDetailModal';
 import { MasApiModal } from './components/MasApiModal';
+import { TalkToUs } from './components/TalkToUs';
 
 export default function App() {
   const [currencies, setCurrencies] = useState<Currency[]>(INITIAL_CURRENCIES);
-  const [activeTab, setActiveTab] = useState<'rates' | 'calculator' | 'matrix' | 'mas-api'>('rates');
+  const [activeTab, setActiveTab] = useState<'rates' | 'calculator' | 'matrix' | 'mas-api' | 'talk-to-us'>('rates');
   const [selectedCalcCurrency, setSelectedCalcCurrency] = useState<string>('MYR');
   const [trendCurrency, setTrendCurrency] = useState<Currency | null>(null);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
@@ -133,6 +134,8 @@ export default function App() {
         )}
 
         {activeTab === 'mas-api' && <MasApiModal />}
+
+        {activeTab === 'talk-to-us' && <TalkToUs />}
       </main>
 
       {/* Currency 7-Day Trend Modal */}

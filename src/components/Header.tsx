@@ -2,8 +2,8 @@ import React from 'react';
 import { RefreshCw } from 'lucide-react';
 
 interface HeaderProps {
-  activeTab: 'rates' | 'calculator' | 'matrix' | 'mas-api';
-  setActiveTab: (tab: 'rates' | 'calculator' | 'matrix' | 'mas-api') => void;
+  activeTab: 'rates' | 'calculator' | 'matrix' | 'mas-api' | 'talk-to-us';
+  setActiveTab: (tab: 'rates' | 'calculator' | 'matrix' | 'mas-api' | 'talk-to-us') => void;
   onRefresh: () => void;
   isRefreshing: boolean;
   lastUpdated: Date;
@@ -34,8 +34,8 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
 
-        {/* Zone 2: 4 clean single-line text navigation links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
+        {/* Zone 2: 5 clean single-line text navigation links */}
+        <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-slate-600">
           <button
             onClick={() => setActiveTab('rates')}
             className={`cursor-pointer whitespace-nowrap shrink-0 transition-colors ${
@@ -76,6 +76,16 @@ export const Header: React.FC<HeaderProps> = ({
           >
             MAS API Specs
           </button>
+          <button
+            onClick={() => setActiveTab('talk-to-us')}
+            className={`cursor-pointer whitespace-nowrap shrink-0 transition-colors ${
+              activeTab === 'talk-to-us'
+                ? 'text-slate-900 font-semibold'
+                : 'hover:text-slate-900'
+            }`}
+          >
+            Talk to Us
+          </button>
         </nav>
 
         {/* Zone 3: 1 primary action */}
@@ -95,10 +105,10 @@ export const Header: React.FC<HeaderProps> = ({
       </div>
 
       {/* Mobile nav row */}
-      <div className="md:hidden flex items-center justify-around border-t border-slate-100 px-2 py-1.5 bg-slate-50 text-xs font-medium">
+      <div className="md:hidden flex items-center justify-around border-t border-slate-100 px-2 py-1.5 bg-slate-50 text-xs font-medium overflow-x-auto">
         <button
           onClick={() => setActiveTab('rates')}
-          className={`px-3 py-1.5 rounded-md ${
+          className={`px-2.5 py-1.5 rounded-md whitespace-nowrap ${
             activeTab === 'rates' ? 'bg-white shadow-xs text-slate-900 font-semibold' : 'text-slate-600'
           }`}
         >
@@ -106,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
         <button
           onClick={() => setActiveTab('calculator')}
-          className={`px-3 py-1.5 rounded-md ${
+          className={`px-2.5 py-1.5 rounded-md whitespace-nowrap ${
             activeTab === 'calculator' ? 'bg-white shadow-xs text-slate-900 font-semibold' : 'text-slate-600'
           }`}
         >
@@ -114,7 +124,7 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
         <button
           onClick={() => setActiveTab('matrix')}
-          className={`px-3 py-1.5 rounded-md ${
+          className={`px-2.5 py-1.5 rounded-md whitespace-nowrap ${
             activeTab === 'matrix' ? 'bg-white shadow-xs text-slate-900 font-semibold' : 'text-slate-600'
           }`}
         >
@@ -122,11 +132,19 @@ export const Header: React.FC<HeaderProps> = ({
         </button>
         <button
           onClick={() => setActiveTab('mas-api')}
-          className={`px-3 py-1.5 rounded-md ${
+          className={`px-2.5 py-1.5 rounded-md whitespace-nowrap ${
             activeTab === 'mas-api' ? 'bg-white shadow-xs text-slate-900 font-semibold' : 'text-slate-600'
           }`}
         >
           MAS API
+        </button>
+        <button
+          onClick={() => setActiveTab('talk-to-us')}
+          className={`px-2.5 py-1.5 rounded-md whitespace-nowrap ${
+            activeTab === 'talk-to-us' ? 'bg-white shadow-xs text-slate-900 font-semibold' : 'text-slate-600'
+          }`}
+        >
+          Talk to Us
         </button>
       </div>
     </header>
